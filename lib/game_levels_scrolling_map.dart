@@ -306,6 +306,11 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
   Future _getPathFromSVG() async {
     await getPointsPathFromXML().then((value) {
       _pathSVG = value.replaceAll(",", " ");
+      _pathSVG = value.replaceAll("M", " ",);
+      _pathSVG = value.replaceAll("c", " ",);
+      _pathSVG = value.replaceAll("s", " ",);
+      _pathSVG = value.replaceAll("l", " ",);
+      _pathSVG = value.replaceAll("-", " ",);
       print("pathSVG : $_pathSVG");
       List<String> arrayOfPoints = _pathSVG!.split(" ");
       for (int i = 0; i < arrayOfPoints.length; i++) {
